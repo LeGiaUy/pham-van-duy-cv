@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Welcome to My Personal Page
+  </title>
+  <meta name="description" content="Trang giới thiệu bản thân đơn giản với giao diện tối giản màu tối." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0d0f12;
+      --surface: #14181d;
+      --surface-2: #1a1f26;
+      --border: rgba(255,255,255,0.09);
+      --text: #f3f5f7;
+      --muted: #a1a8b3;
+      --faint: #6e7683;
+      --accent: #d7dde6;
+      --radius: 20px;
+      --radius-sm: 12px;
+      --shadow: 0 20px 60px rgba(0,0,0,0.35);
+      --max: 1100px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: 'Inter', system-ui, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(255,255,255,0.06), transparent 28%),
+        radial-gradient(circle at bottom right, rgba(255,255,255,0.03), transparent 22%),
+        var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    .container {
+      width: min(calc(100% - 32px), var(--max));
+      margin: 0 auto;
+    }
+    .header {
+      padding: 24px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      position: sticky;
+      top: 0;
+      backdrop-filter: blur(14px);
+      background: rgba(13,15,18,0.72);
+    }
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+    .logo {
+      font-family: 'Manrope', sans-serif;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 14px;
+    }
+    .nav {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .nav a {
+      color: var(--muted);
+      font-size: 14px;
+      transition: color .2s ease;
+    }
+    .nav a:hover { color: var(--text); }
+    .hero {
+      padding: 80px 0 48px;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+    .card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .hero-copy {
+      padding: 48px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 420px;
+    }
+    .eyebrow {
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 16px;
+      margin-bottom: 18px;
+    }
+    h1, h2, h3 {
+      margin: 0;
+      font-family: 'Manrope', sans-serif;
+      line-height: 1.08;
+    }
+    h1 {
+      font-size: clamp(1.5rem, 3vw, 2.6rem);
+      max-width: 12ch;
+    }
+    h2 {
+      font-size: clamp(1.5rem, 3vw, 2.2rem);
+      margin-bottom: 14px;
+    }
+    p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.7;
+      max-width: 62ch;
+    }
+    .hero-copy p {
+      margin-top: 20px;
+      font-size: 1.05rem;
+      max-width: 46ch;
+    }
+    .actions {
+      margin-top: 30px;
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      min-height: 46px;
+      padding: 0 18px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--border);
+      transition: transform .2s ease, background .2s ease, border-color .2s ease;
+    }
+    .btn:hover { transform: translateY(-1px); }
+    .btn-primary {
+      background: var(--text);
+      color: #0d0f12;
+      border-color: var(--text);
+      font-weight: 600;
+    }
+    .btn-secondary {
+      color: var(--text);
+      background: rgba(255,255,255,0.03);
+    }
+    .profile-box {
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 420px;
+    }
+    .avatar {
+      width: 88px;
+      height: 88px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, #f5f7fa 0%, #9aa3af 100%);
+      color: #0d0f12;
+      font-family: 'Manrope', sans-serif;
+      font-size: 28px;
+      font-weight: 800;
+    }
+    s {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 26px;
+    }
+    .stats {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  margin-top: 26px;
+}
+
+.stat {
+  padding: 22px;
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  border: 1px solid var(--border);
+}
+
+.stat strong {
+  display: block;
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+}
+
+.stat span {
+  display: block;
+  color: var(--muted);
+  line-height: 1.7;
+}
+    
+    .section {
+      padding: 24px 0 56px;
+    }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+    }
+    .panel {
+      padding: 30px;
+    }
+    .list {
+      display: grid;
+      gap: 16px;
+      margin-top: 18pxstat;
+    }
+    .item {
+      padding-bottom: 16px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .item:last-child { border-bottom: none; padding-bottom: 0; }
+    .label {
+      display: inline-block;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.06);
+      color: var(--text);
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .footer {
+      padding: 0 0 40px;
+    }
+    .footer-box {
+      padding: 22px 26px;
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      color: var(--faint);
+      font-size: 14px;
+    }
+    @media (max-width: 900px) {
+      .hero-grid, .grid-2 { grid-template-columns: 1fr; }
+      .hero-copy, .profile-box { min-height: auto; }
+    }
+    @media (max-width: 640px) {
+      .header-inner { flex-direction: column; align-items: flex-start; }
+      .hero { padding-top: 48px; }
+      .hero-copy, .profile-box, .panel { padding: 22px; }
+      .stats { grid-template-columns: 1fr; }
+      .actions { flex-direction: column; }
+      .btn { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="container header-inner">
+      <div class="logo">Pham Van Duy </div>
+      <nav class="nav" aria-label="Điều hướng trang cá nhân">
+        <a href="#about">About Me</a>
+        <a href="#work">Work</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="card hero-copy" id="about">
+          <div class="eyebrow">About me</div>
+          <h1>I just graduated from university with a degree in Finance.
+
+          </h1>
+          <p>
+             I am currently looking for a job as a personal assistant. I am a helpful, reliable assistant who is always ready to help whenever you need me.
+          </p>
+          <div class="actions">
+            <a class="btn btn-primary" href="#contact">Contact Me</a>
+            <a class="btn btn-secondary" href="#work">More</a>
+          </div>
+        </div>
+
+        <aside class="card profile-box">
+          <div>
+            <div class="avatar">DP</div>
+            <div style="margin-top:18px;">
+              <h2>Duy "Ben"Pham</h2>
+              <p>BA Of Finance / Personal Assistant.</p>
+            </div>
+          </div>
+          <div class="stats">
+            <div class="stat skill-box">
+              <strong>Skills</strong>
+              <p>-Time Management</p>
+              <p>-Problem Solving</p>
+              <p>-Communication Skills</p> 
+              <p>-Speak English, Vietnamese and Chinese</p>
+            </div>
+            <div class="stat skill-box">
+              <strong>Experience</strong>
+              <p>-Time Management</p>
+              <p>-Problem Solving</p>
+              <p>-Communication Skills</p> 
+              <p>-Speak English, Vietnamese and Chinese</p>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="work">
+      <div class="container grid-2">
+        <article class="card panel">
+          <span class="label">What I do</span>
+          <h2>Main Works</h2>
+          <p>I am a helpful, reliable assistant who is always ready to help whenever you need me.</p>
+          <div class="list">
+            <div class="item">
+              <strong>Analysis</strong>
+              <p>Helpful and reliable assistant.</p>
+              </p>
+            </div>
+            <div class="item">
+              <strong>Work Management</strong>
+              <p>Working structurally and maintaining stable progress.</p>
+            </div>
+            <div class="item">
+              <strong>Communication</strong>
+              <p>Presenting ideas concisely, clearly and on point.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="card panel">
+          <span class="label">Quick Info</span>
+          <h2>Short Profile</h2>
+          <div class="list">
+            <div class="item">
+              <strong>Location</strong>
+              <p>London, United Kingdom</p>
+            </div>
+            <div class="item">
+              <strong>Email</strong>
+              <p>duypham1624@gmail.com</p>
+            </div>
+            <div class="item">
+              <strong>Career Objective</strong>
+              <p>Motivated Finance graduate willing to take on challenges, dedicate my time and effort to learn quickly and grow, in order to build a long‑term career and contribute to the company’s success.</p>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="container">
+        <article class="card panel">
+          <span class="label">Contacts</span>
+          <h2>My Contacts</h2>
+          <div class="actions">
+            <a class="btn btn-primary" href="mailto:duypham1624@gmail.com">Email</a>
+            <a class="btn btn-secondary" href="https://www.linkedin.com/in/duy-pham-a6073a413/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-box">
+      <span>© 2026 Duy "Ben" Pham</span>
+      <span>Your Professional Assistant</span>
+    </div>
+  </footer>
+</body>
+</html>
